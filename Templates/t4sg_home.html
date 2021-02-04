@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+</head>
+
+<body style="background: rgba(61,103,98,0.69);">
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+        <div class="container"><a class="navbar-brand" href="/home">T4SG for WHO</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/new-post">Create a New Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/home">All Posts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/sign-out">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- {% for post in posts %}
+    <a href="#">
+        <h2>{{ post['title'] }}</h2>
+    </a>
+    <span class="badge badge-primary">{{ post['created'] }}</span>
+    <hr>
+{% endfor %} -->
+    {% for post in posts %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto" style="background: rgb(248,249,250);margin-top: 10px;margin-bottom: 10px;">
+                <p class="text-center" style="margin-bottom: 0px; font-weight: bold;">{{ post['title'] }}</p>
+                <!-- <p class="text-center" style="margin-bottom: 8px;">Author</p> -->
+                <small style="margin-left: 42%; color:rgba(61,103,98,0.69);" class="text-center">{{ post['created'] }}</small>
+                <p class="text-center">{{ post['content'] }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <script src="{{ url_for('static', filename= 'js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>

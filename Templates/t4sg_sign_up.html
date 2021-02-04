@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+        <div class="container"><a class="navbar-brand" href="/">T4SG for WHO</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="/sign-up">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/sign-in">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead text-white text-center" style="opacity: 1;filter: brightness(100%) contrast(100%) saturate(100%);">
+        <div class="overlay" style="background: #e4ffa9;opacity: 0.55;filter: contrast(123%);"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 class="mb-5">Sign Up</h1>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    <form>
+                        <div class="form-row">
+                            <div class="col mb-2 mb-md-0" style="max-width: 100%;">
+                                <p>What is your first name(s)?</p><input class="form-control" type="text" id="firstname" name="firstname" required style="margin-top: 10px; height:50px;  width: 640px;"></div>
+                            <div class="col-12 mb-2 mb-md-0">
+                                <p style="margin-top: 10px;">What is your last name(s)?</p><input class="form-control" type="text" id="lastname" name="lastname" required style="margin-top: 10px; height:50px;  width: 640px;"></div>
+                            <div class="col-12 mb-2 mb-md-0">
+                                <p style="margin-top: 10px;">Enter your email:</p><input class="form-control form-control-lg" type="email" id="email" name="email" placeholder="Enter your email..." style="margin-top: 10px; height:50px;  width: 640px;"></div>
+                            <div class="col-12 mb-2 mb-md-0">
+                                <p style="margin-top: 10px;">Choose a password</p><input class="form-control" input type="password" id="pass" name="password" aria-describedby="passwordHelpBlock" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required style="margin-top: 10px; height:50px;  width: 640px;">
+                                <small style="margin-top: 10px; color:white;" id="passwordHelpBlock" >
+  Your password must be at least 10 character long, contain uppercase and lowercase letters, numbers, and must not contain spaces, special characters, or emojis.
+</small> </div>
+                            <div class="col-12 mb-2 mb-md-0">
+                                    <p style="margin-top: 10px;">Repeat your password</p><input class="form-control" type="password" name="rpassword" style="height:50px;  width: 640px; margin-top: 10px;"></div>
+                                    {% for problem in problems %}
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xl-9 mx-auto" style="margin-top: 10px;margin-bottom: 10px;">
+                                                <p class="text-center" style="color:rgba(229,70,70,1)">{{ problem }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                            <div class="col-12 mb-2 mb-md-0"><button class="btn btn-primary btn-lg" type="submit" formmethod="post" style="margin-top: 10px; background: rgba(0,224,255,0.27);filter: brightness(0%) contrast(100%);text-align: center;">Sign up!</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="{{ url_for('static', filename= 'js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>
